@@ -22,7 +22,7 @@ function Accordion({data}) {
                                 {data.details.map((data, index) => (
                                     <RigthWrap key={index}>
                                         { data.title && <Heading>{data.title}</Heading>}
-                                        <Info>{data.content}</Info>
+                                        { data.content && <Info>{data.content}</Info> }
                                     </RigthWrap>
                                 ))}
                                 </Right>
@@ -53,6 +53,10 @@ const Content = styled.div`
     // border-bottom: 1px solid rgb(0, 0, 0, 0.6);
     max-width: 70%;
     width: 100%;
+
+    @media(max-width: 620px) {
+        max-width: 90%;
+    }
 `
 
 const Header = styled.div`
@@ -67,11 +71,22 @@ const Header = styled.div`
     .MuiSvgIcon-root {
         font-size: 2.0em;
     }
+
 `
 
 const Title = styled.div`
     flex: 1;
     font-size: 2.0em;
+    
+    @media(max-width: 600px) {
+        font-size: 1.6em;
+    }
+    @media(max-width: 450px) {
+        font-size: 1.2em;
+    }
+    @media(max-width: 350px) {
+        font-size: 1.0em;
+    }
 `
 
 const Data = styled.div`
@@ -88,11 +103,19 @@ const Data = styled.div`
 const ContentWrap = styled.div`
     display: flex;
     margin-bottom: 32px;
+
+    @media(max-width: 450px) {
+        flex-direction: column;
+    }
 `
 
 const Left = styled.div`
     font-size: 1.4em;
     flex: 0.3;
+    @media(max-width: 450px) {
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgb(0, 0, 0, 0.5)
+    }
 `
 
 const Right = styled.div`
@@ -100,6 +123,12 @@ const Right = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0 32px;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.2); 
+    @media(max-width: 450px) {
+        margin: 10px 0;
+        border-bottom: 0px;
+    }
+
 `
 
 const RigthWrap = styled.div`

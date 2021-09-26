@@ -28,7 +28,7 @@ function Navbar() {
                 </LeftButton>
 
                 <Logo>
-                    <a href="#"><img src={logo} alt="" /></a>
+                    <a href="/"><img src={logo} alt="" /></a>
                 </Logo>
 
                 <NavMenu>
@@ -72,20 +72,22 @@ function Navbar() {
 export default Navbar
 
 const Nav = styled.nav`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+
 //   bottom: 0;
+    height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 //   align-items: center;
-    z-index: 3;
 `;
 
 const Main = styled.div`
     min-height: 60px;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    left: 0;
+    right: 0;
     display: flex;
     flex: 1;
     padding: 0 20px;

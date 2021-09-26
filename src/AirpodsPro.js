@@ -2,6 +2,7 @@ import { AllInbox, Favorite, FavoriteBorderOutlined, ShoppingBasket } from '@mat
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Accordion from './components/Accordion';
+import Recommeded from './components/Recommeded';
 
 const imgLocation = '/images/airpodspro';
 
@@ -102,11 +103,73 @@ const Details = [
                     },
                 ]
             },
+            {
+                'heading': 'What’s in the Box',
+                'details': [
+                    {
+                        'title': null,
+                        'content': 'AirPods Pro'
+                    },
+                    {
+                        'title': null,
+                        'content': 'Wireless Charging Case'
+                    },
+                    {
+                        'title': null,
+                        'content': 'Silicone ear tips (three sizes)'
+                    },
+                    {
+                        'title': null,
+                        'content': 'Lightning to USB-C Cable'
+                    },
+                    {
+                        'title': null,
+                        'content': 'Documentation'
+                    },
+                ]
+            },
+            {
+                'heading': 'Tech Specs',
+                'details': [
+                    {
+                        'title': 'Audio Technology',
+                        'content': null
+                    },
+                    {
+                        'title': null,
+                        'content': 'Active Noise Cancellation'
+                    },
+                    {
+                        'title': null,
+                        'content': 'Transparency mode'
+                    },
+                    {
+                        'title': null,
+                        'content': 'Adaptive EQ'
+                    },
+                    {
+                        'title': null,
+                        'content': 'Vent system for pressure equalization'
+                    },
+                    {
+                        'title': null,
+                        'content': 'Custom high-excursion Apple driver'
+                    },
+                    {
+                        'title': null,
+                        'content': 'Custom high dynamic range amplifier'
+                    },
+                    {
+                        'title': null,
+                        'content': 'Spatial audio with dynamic head tracking¹'
+                    },
+                ]
+            },
         ]
     }
 ]
 
-function Mac() {
+function AirpodsPro() {
 
     const [activeimg, setActiveImg] = useState(0);
 
@@ -133,29 +196,27 @@ function Mac() {
         } else {
             setstate({bgImg: limit, position: 'relative'})
         }
-        console.log("Length", ((num.substring(0, length)).toString()), length)
+        // console.log("Length", ((num.substring(0, length)).toString()), length)
     }
 
-    const handleScroll = event => {
-        const { pageYOffset } = window;
-        // const { active } = this.state;
-        console.log(pageYOffset)
-        if (pageYOffset >= 110*2) {
-            console.log(state.bgImg)
-            setstate({bgImg: '/images/iphone_12.png'});
-        } else if (pageYOffset>= 0){
-            setstate({bgImg: '/images/ipad.jpg'});
+    // const handleScroll = event => {
+    //     const { pageYOffset } = window;
+    //     // const { active } = this.state;
+    //     console.log(pageYOffset)
+    //     if (pageYOffset >= 110*2) {
+    //         setstate({bgImg: '/images/iphone_12.png'});
+    //     } else if (pageYOffset>= 0){
+    //         setstate({bgImg: '/images/ipad.jpg'});
 
-        } else if (pageYOffset < 500) {
-            // setstate(0);
-            console.log("I was in else")
+    //     } else if (pageYOffset < 500) {
+    //         // setstate(0);
+    //         // console.log("I was in else")
 
-        }
-        console.log(state)
-      };
+    //     }
+    //     // console.log(state)
+    //   };
 
     useEffect(() => {
-        console.log(state, "useEffect")
         findImgScrollY()
         // handleScroll()
         // window.addEventListener("scroll", handleScroll);
@@ -211,8 +272,6 @@ function Mac() {
                                     <img 
                                     className={index === activeimg && 'active'} 
                                     onClick={() => setActiveImg(index)} src={image.location} alt={index} key={index}>
-                                        {console.log(index === activeimg)}
-
                                     </img>
                                 ))}
                             </Selector>
@@ -228,11 +287,12 @@ function Mac() {
                     <Accordion key={index} data={data}/>
                 ))}
             </ProductDetails>
+            <Recommeded /> 
         </MainContainer>
     )
 }
 
-export default Mac
+export default AirpodsPro
 
 const MainContainer = styled.div`
     inset: auto;
