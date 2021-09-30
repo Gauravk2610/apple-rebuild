@@ -30,7 +30,7 @@ export default Intro
 
 const MainContainer = styled.div`
     // display: flex;
-    clip-path: circle(180vh at 50% -81vh);
+    clip-path: circle(170vh at 50% -81vh);
     
     @media(max-width: 810px) {
         clip-path: circle(162vh at 0% -80vh);

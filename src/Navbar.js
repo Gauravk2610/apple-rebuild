@@ -4,8 +4,9 @@ import logo from './components/apple_logo.png'
 import LocalMallIcon from '@material-ui/icons/LocalMall';
 import SearchIcon from '@material-ui/icons/Search';
 import CloseIcon from '@material-ui/icons/Close';
-import { IconButton } from '@material-ui/core';
+import { IconButton, Menu, MenuItem } from '@material-ui/core';
 import DehazeIcon from '@material-ui/icons/Dehaze';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
     const[BurgerStatus, setBurgerStatus] = useState(false)
@@ -28,12 +29,18 @@ function Navbar() {
                 </LeftButton>
 
                 <Logo>
-                    <a href="/"><img src={logo} alt="" /></a>
+                    <Link to="/"><img src={logo} alt="" /></Link>
                 </Logo>
 
                 <NavMenu>
-                    <li><a href="/mac">Mac</a></li>
-                    <li><a href="#">iPad</a></li>
+                    <li><Link to={{
+                        pathname: '/shop/airpodspromax',
+                        state: 'airpodsomax'
+                    }}>Mac</Link></li>
+                    <li><Link to={{
+                        pathname: '/shop/ipad',
+                        state: 'ipad'
+                    }}>iPad</Link></li>
                     <li><a href="#">iPhone</a></li>
                     <li><a href="#">Watch</a></li>
                     <li><a href="#">TV</a></li>
@@ -46,7 +53,16 @@ function Navbar() {
                         <SearchIcon className='Search'/>
                     </IconButton>
                     <IconButton>
+                        {/* <div style={{position: 'relative'}}> */}
                         <LocalMallIcon />
+                        {/* <ul style={{position: 'absolute'}} >
+                            <li>Hi</li>
+                            <li>Hi</li>
+                            <li>Hi</li>
+                            <li>Hi</li>
+                            <li>Hi</li>
+                        </ul>
+                        </div> */}
                     </IconButton>
                 </RightButton>
             </Main>
@@ -99,7 +115,7 @@ const Main = styled.div`
 
 const SubMenu = styled.div`
     // display: none;
-
+    z-index: 1;
     position: fixed;
     top: 60px;
     left: 0;

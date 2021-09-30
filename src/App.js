@@ -6,18 +6,25 @@ import Navbar from './Navbar';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import AirpodsPro from './AirpodsPro';
 import CommonProduct from './components/Product/CommonProduct';
+import Login from './Login';
+import { useSelector } from 'react-redux';
+import { User } from './features/user/userSlice';
 
 function App() {
+  const user = !useSelector(User)
   return (
     <div className="App">
       <Router>
-        <Navbar />
+        {user && <Navbar />}
           <Switch>
-            <Route path='/airpodsmax'>
+            <Route path='/shop/:apple'>
               <CommonProduct />
             </Route>
             <Route path='/airpodspro'>
               <AirpodsPro />
+            </Route>
+            <Route path='/login'>
+              <Login />
             </Route>
             <Route exact path='/'>
               <Home />
